@@ -14,7 +14,10 @@ export const ModaleDiv = styled.div`
   z-index: 10;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.8);
-  animation: fadeIn 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+  ${(props) =>
+    props.animation && {
+      animation: 'fadeIn 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards',
+    }}
   @keyframes fadeIn {
     0% {
       background-color: rgba(0, 0, 0, 0);
@@ -33,8 +36,12 @@ export const ModaleContent = styled.div`
   border-radius: .5rem;
   background-color: white;
   top: 40vh;
-  transform: translateX(-1500px);
-  animation: roadRunnerIn 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+  ${(props) =>
+    props.animation && {
+      transform: 'translateX(-1500px)',
+      animation:
+        'roadRunnerIn 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards',
+    }}
   @keyframes roadRunnerIn {
     0% {
       transform: translateX(-1500px) skewX(30deg) scaleX(1.3);
@@ -47,9 +54,14 @@ export const ModaleContent = styled.div`
     }
   }
 `
-export const Content = styled.p`
+export const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   color: black;
+  line-height: 1.5rem;
 `
 export const IMG = styled.img`
   position: absolute;

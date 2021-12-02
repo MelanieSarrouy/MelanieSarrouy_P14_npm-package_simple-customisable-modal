@@ -1,70 +1,121 @@
-# Getting Started with Create React App
+<br/>
+<p align="center"><img src="https://github.com/MelanieSarrouy/MelanieSarrouy_P14_npm-package_simple-customisable-modal/blob/main/src/lib/components/assets/modale.JPG?raw=true" alt="modal's preview" /></p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# A modal react component simple and customizable with an animation
 
-## Available Scripts
+ ### About this the Modal component
+  
+This is a simple Modal component for react projects.
 
-In the project directory, you can run:
+The Modal component renders a pre-styled modal
+It consists of:
+- the modal background with an easily customizable style,
+- the modal container with an easily customizable style,
+- the modal content with an easily customizable style,
+- the possibility to add the children you want in the modal content
+- the possibility to turned on or not the animation of the modal appear
+- the possibility to display or not the modal's closing button
 
-### `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Installation
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+You can install the [simple-react-modale-ui](https://www.npmjs.com/package/@melanie-sarrouy/simple-react-modale-ui) with [npm](https://yarnpkg.com/):
 
-### `yarn test`
+`npm install @melanie-sarrouy/simple-react-modale-ui`
+   
+## How to use
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Import
+Simply import the Modal component into the file you want to use the modal with and define its children for the content of your modal and, of course, define the styles if you want to customise them.
 
-### `yarn build`
+`import { Modal } from @melanie-sarrouy/simple-react-modale-ui`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Example
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+        <Modale
+	        hideModale={closeModale}
+	        styleModaleBackground
+	        styleModale={{padding: 25, backgroundColor: 'red' }}
+	        styleModaleContent
+	        animation={true}
+	        closeButton={true}
+        >
+	        <h1>Your modal's message here !</h1>
+	        <p>more text, or an image or an input</>
+        </Modale>
+  
+### State
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The modal functionality is handled by the local state of the modal's parent. Therefore, the parent component requires **state**. I have used *modaleIsOpen* and *setModaleIsOpen* as variable names, but you can call them whatever you like.
 
-### `yarn eject`
+      const [modaleIsOpen, setModaleIsOpen] = useState(false)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+The initial state should be set to **false**.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+An action at the parent component's level allows to change the state to **true**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+    const  handleSubmit = ( => {
+	    setModaleIsOpen(true)
+    }
+This displays the Modal component:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+    {modaleIsOpen && (
+	    <Modale
+		    hideModale={closeModale}
+		    styleModaleBackground
+		    styleModale
+		    styleModaleContent
+		    animation={true}
+		    closeButton={true}
+	    >
+		    <p>Your modal's message here !</p>	      
+	    </Modale>
+    )}
 
-## Learn More
+### Props
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Name  | Type | Description | Required
+------------- | ------------- | ------------- | ------------- 
+*hideModale*  | Function | to close modal | **required**
+*styleModaleBackground*  | Object | inline styles | optional
+*styleModale*  | Object | inline styles | optional
+*styleModaleContent*  | Object | inline styles | optional
+*animation*  | Boolean | to activate or not the animation of the modal appear | **required**
+*closeButton*  | Boolean | to display or not button close | **required**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+   **1. *hideModale* prop**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+The "*hideModale*" prop receives the close modal function as value. This enables the modal to be closed on button click or on modal's background click.
 
-### Analyzing the Bundle Size
+"*hideModale*" is **required**.
+   
+     const  closeModale = () => {
+        setModaleIsOpen(false)
+     }
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+ **2. *styleModaleBackground* prop**
+ 
+ The "*styleModaleBackground*" prop receives inline styles you want to customize for  the modal background
 
-### Making a Progressive Web App
+ **3. *styleModale* prop**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+The "*styleModale*" prop receives inline styles you want to customize for  the modal container
 
-### Advanced Configuration
+**4. *styleModaleContent* prop**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+The "*styleModaleContent*" prop receives inline styles you want to customize for  the modal's content
 
-### Deployment
+**5. *animation* prop**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+The modal comes with a built-in animation effect that can be turned on by setting the *animation* prop to **true** or turned off with **false**.
 
-### `yarn build` fails to minify
+"*animation*" is **required**.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**6. *closeButton* prop**
+
+The "*closeButton*" prop receives a boolean value.
+It's equal **true** to display the button close.
+It's equal **false** if you don't want to display any close button.
+
+"*closeButton*" is **required**.

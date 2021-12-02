@@ -1,12 +1,12 @@
 {
-  "name": "@melanie-sarrouy/simple-react-modale",
-  "description": "A modal react component simple and customisable with animation",
+  "name": "@melanie-sarrouy/simple-react-modale-ui",
+  "description": "A modal react component simple and customizable with an animation",
   "author": "Melanie Sarrouy",
   "keywords": [
     "react",
     "component",
     "modal",
-    "customisable",
+    "customizable",
     "animation",
     "ui",
     "simple"
