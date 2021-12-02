@@ -4,7 +4,7 @@ import { Content, IMG, ModaleContent, ModaleDiv } from './styles/modale'
 
 const Modale = (props) => {
   return (
-    <ModaleDiv style={props.styleModaleBackground}>
+    <ModaleDiv style={props.styleModaleBackground} onClick={props.hideModale}>
       <ModaleContent style={props.styleModale}>
         <Content style={props.styleModaleContent}>{props.content}</Content>
         <IMG src={close} alt="close" onClick={props.hideModale} />
