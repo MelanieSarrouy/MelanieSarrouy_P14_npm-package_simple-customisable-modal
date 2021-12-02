@@ -15,12 +15,15 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 const Modale = props => {
   return /*#__PURE__*/_react.default.createElement(_modale.ModaleDiv, {
-    style: props.styleModaleBackground
+    style: props.styleModaleBackground,
+    onClick: props.hideModale,
+    animation: props.animation
   }, /*#__PURE__*/_react.default.createElement(_modale.ModaleContent, {
-    style: props.styleModale
+    style: props.styleModale,
+    animation: props.animation
   }, /*#__PURE__*/_react.default.createElement(_modale.Content, {
     style: props.styleModaleContent
-  }, props.content), /*#__PURE__*/_react.default.createElement(_modale.IMG, {
+  }, props.children), props.closeButton && /*#__PURE__*/_react.default.createElement(_modale.IMG, {
     src: _close.default,
     alt: "close",
     onClick: props.hideModale
