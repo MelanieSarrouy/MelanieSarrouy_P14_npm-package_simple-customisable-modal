@@ -19,16 +19,16 @@ It consists of:
 
 ## Installation
 
-You can install the [simple-react-modale-ui](https://www.npmjs.com/package/@melanie-sarrouy/simple-react-modale-ui) with [npm](https://yarnpkg.com/):
+You can install the [simple-react-modale-ui](https://www.npmjs.com/package/simple-react-modale-ui) with [npm](https://yarnpkg.com/):
 
-`npm install @melanie-sarrouy/simple-react-modale-ui`
+`npm install simple-react-modale-ui`
    
 ## How to use
 
 ### Import
 Simply import the Modal component into the file you want to use the modal with and define its children for the content of your modal and, of course, define the styles if you want to customise them.
 
-`import { Modal } from @melanie-sarrouy/simple-react-modale-ui`
+`import { Modal } from simple-react-modale-ui`
 
 ### Example
 
