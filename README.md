@@ -18,8 +18,6 @@ It consists of:
 
 [jQuery plugin converted](https://github.com/kylefox/jquery-modal)
 
-[GitHub repository](https://github.com/MelanieSarrouy/MelanieSarrouy_P14_npm-package_simple-customisable-modal)
-
 [npm package](https://www.npmjs.com/package/simple-react-modal-ui)
 
 ## Installation
