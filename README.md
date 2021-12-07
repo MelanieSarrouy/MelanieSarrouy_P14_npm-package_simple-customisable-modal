@@ -16,95 +16,100 @@ It consists of:
 - the possibility to turned on or not the animation of the modal appear
 - the possibility to display or not the modal's closing button
 
+[jQuery plugin converted](https://github.com/kylefox/jquery-modal)
+
+[GitHub repository](https://github.com/MelanieSarrouy/MelanieSarrouy_P14_npm-package_simple-customisable-modal)
+
+[npm package](https://www.npmjs.com/package/simple-react-modal-ui)
 
 ## Installation
 
-You can install the [simple-react-modale-ui](https://www.npmjs.com/package/simple-react-modale-ui) with [npm](https://yarnpkg.com/):
+You can install the [simple-react-modal-ui](https://www.npmjs.com/package/simple-react-modal-ui) with [npm](https://yarnpkg.com/):
 
-`npm install simple-react-modale-ui`
+`npm install simple-react-modal-ui`
    
 ## How to use
 
 ### Import
 Simply import the Modal component into the file you want to use the modal with and define its children for the content of your modal and, of course, define the styles if you want to customise them.
 
-`import { Modal } from simple-react-modale-ui`
+`import { Modal } from simple-react-modal-ui`
 
 ### Example
 
-        <Modale
-	        hideModale={closeModale}
-	        styleModaleBackground
-	        styleModale={{padding: 25, backgroundColor: 'red' }}
-	        styleModaleContent
+        <Modal
+	        hideModal={closeModal}
+	        styleModalBackground
+	        styleModal={{padding: 25, backgroundColor: 'red' }}
+	        styleModalContent
 	        animation={true}
 	        closeButton={true}
         >
 	        <h1>Your modal's message here !</h1>
 	        <p>more text, or an image or an input</>
-        </Modale>
+        </Modal>
   
 ### State
 
 The modal functionality is handled by the local state of the modal's parent. Therefore, the parent component requires **state**. I have used *modaleIsOpen* and *setModaleIsOpen* as variable names, but you can call them whatever you like.
 
-      const [modaleIsOpen, setModaleIsOpen] = useState(false)
+      const [modalIsOpen, setModalIsOpen] = useState(false)
 
 The initial state should be set to **false**.
 
 An action at the parent component's level allows to change the state to **true**
 
     const  handleSubmit = ( => {
-	    setModaleIsOpen(true)
+	    setModalIsOpen(true)
     }
 This displays the Modal component:
 
-    {modaleIsOpen && (
-	    <Modale
-		    hideModale={closeModale}
-		    styleModaleBackground
-		    styleModale
-		    styleModaleContent
+    {modalIsOpen && (
+	    <Modal
+		    hideModal={closeModal}
+		    styleModalBackground
+		    styleModal
+		    styleModalContent
 		    animation={true}
 		    closeButton={true}
 	    >
 		    <p>Your modal's message here !</p>	      
-	    </Modale>
+	    </Modal>
     )}
 
 ### Props
 
 Name  | Type | Description | Required
 ------------- | ------------- | ------------- | ------------- 
-*hideModale*  | Function | to close modal | **required**
-*styleModaleBackground*  | Object | inline styles | optional
-*styleModale*  | Object | inline styles | optional
-*styleModaleContent*  | Object | inline styles | optional
+*hideModal*  | Function | to close modal | **required**
+*styleModalBackground*  | Object | inline styles | optional
+*styleModal*  | Object | inline styles | optional
+*styleModalContent*  | Object | inline styles | optional
 *animation*  | Boolean | to activate or not the animation of the modal appear | **required**
 *closeButton*  | Boolean | to display or not button close | **required**
 
 
-   **1. *hideModale* prop**
+   **1. *hideModal* prop**
 
-The "*hideModale*" prop receives the close modal function as value. This enables the modal to be closed on button click or on modal's background click.
+The "*hideModal*" prop receives the close modal function as value. This enables the modal to be closed on button click or on modal's background click.
 
-"*hideModale*" is **required**.
+"*hideModal*" is **required**.
    
-     const  closeModale = () => {
-        setModaleIsOpen(false)
+     const  closeModal = () => {
+        setModalIsOpen(false)
      }
 
- **2. *styleModaleBackground* prop**
+ **2. *styleModalBackground* prop**
  
- The "*styleModaleBackground*" prop receives inline styles you want to customize for  the modal background
+ The "*styleModalBackground*" prop receives inline styles you want to customize for  the modal background
 
- **3. *styleModale* prop**
+ **3. *styleModal* prop**
 
-The "*styleModale*" prop receives inline styles you want to customize for  the modal container
+The "*styleModal*" prop receives inline styles you want to customize for  the modal container
 
-**4. *styleModaleContent* prop**
+**4. *styleModalContent* prop**
 
-The "*styleModaleContent*" prop receives inline styles you want to customize for  the modal's content
+The "*styleModalContent*" prop receives inline styles you want to customize for  the modal's content
 
 **5. *animation* prop**
 

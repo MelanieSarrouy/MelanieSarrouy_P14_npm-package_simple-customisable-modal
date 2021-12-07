@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const ModaleDiv = styled.div`
+export const ModalDiv = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,7 +27,7 @@ export const ModaleDiv = styled.div`
     }
   }
 `
-export const ModaleContent = styled.div`
+export const ModalContent = styled.div`
   width: auto;
   height: auto;
   position: absolute;
